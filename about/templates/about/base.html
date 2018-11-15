@@ -21,7 +21,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">Ganesha</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,13 +35,17 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
 
-        </ul>
+         {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'post_new' %}" class="top-menu">New Post</a>
+          </li>
+          {% endif %}
 
+        </ul>
       </div>
     </nav>
     {% block content %}
